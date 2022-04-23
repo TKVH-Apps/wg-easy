@@ -51,6 +51,8 @@ spec:
           value: "25"
         - name: WG_DEFAULT_DNS
           value: "192.168.1.1"
+        - name: WG_ALLOWED_IPS
+          value: "0.0.0.0/0, ::/0, 192.168.1.0/24"
         volumeMounts:
         - name: wg-easy
           mountPath: /etc/wireguard
