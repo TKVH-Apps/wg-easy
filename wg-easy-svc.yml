@@ -12,6 +12,17 @@ spec:
     app: wg-easy
     part-of: wg-easy
 ---
+kind: Service
+apiVersion: v1
+metadata:
+  name: ak-outpost-proxy01
+spec:
+  type: ExternalName
+  externalName: ak-outpost-proxy01.authentik.svc.cluster.local
+  ports:
+  - port: 9000
+    targetPort: 9000
+---
 apiVersion: v1
 kind: Service
 metadata:

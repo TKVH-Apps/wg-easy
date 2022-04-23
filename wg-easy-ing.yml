@@ -17,9 +17,9 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: wg-easy-tcp
+            name: ak-outpost-proxy01 
             port:
-              number: 51821
+              number: 9000
   tls:
   - hosts:
     - wireguard.<path:apps-kv/data/general#internalDN>
