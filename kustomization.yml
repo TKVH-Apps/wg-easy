@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: wg-easy
+resources:
+  - wg-easy-deploy.yml
+  - wg-easy-svc.yml
+  - wg-easy-ing.yml
+  - wg-easy-pvc.yml
+  - wg-easy-ns.yml

@@ -1,0 +1,58 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: wg-easy
+  labels:
+    app: wg-easy
+    part-of: wg-easy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wg-easy
+      part-of: wg-easy
+  template:
+    metadata:
+      labels:
+        app: wg-easy
+        part-of: wg-easy
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: disktype
+                operator: In
+                values:
+                - ssd   
+      containers:
+      - name: wg-easy
+        securityContext:
+          capabilities:
+            add:
+              - NET_ADMIN
+              - SYS_MODULE
+        image: weejewel/wg-easy:5 
+        ports:
+        - name: wg-easy
+          containerPort: 51820
+          protocol: UDP
+        - name: wg-easy-tcp
+          containerPort: 51821
+          protocol: TCP
+        env:
+        - name: WG_HOST
+          value: "wireguard.<path:apps-kv/data/general#DN>"
+        - name: WG_PORT
+          value: "51820"
+        - name: WG_PERSISTENT_KEEPALIVE
+          value: "25"
+        volumeMounts:
+        - name: wg-easy
+          mountPath: /etc/wireguard
+      volumes:
+      - name: wg-easy
+        persistentVolumeClaim:
+          claimName: wg-easy
