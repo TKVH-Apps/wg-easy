@@ -40,7 +40,7 @@ spec:
             add:
               - NET_ADMIN
               - SYS_MODULE
-        image: weejewel/wg-easy:5 
+        image: weejewel/wg-easy:7
         ports:
         - name: wg-easy
           containerPort: 51820
