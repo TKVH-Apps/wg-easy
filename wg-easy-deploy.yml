@@ -54,13 +54,13 @@ spec:
         - name: WG_PORT
           value: "51820"
         - name: WG_PERSISTENT_KEEPALIVE
-          value: "25"
+          value: "60"
         - name: WG_DEFAULT_DNS
-          value: "192.168.1.60"
+          value: "192.168.1.1"
         - name: WG_ALLOWED_IPS
           value: "192.168.1.0/24"
         - name: WG_MTU
-          value: "1200"
+          value: "1450"
         volumeMounts:
         - name: wg-easy
           mountPath: /etc/wireguard
