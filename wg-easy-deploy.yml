@@ -56,8 +56,8 @@ spec:
           value: "51820"
         - name: WG_PERSISTENT_KEEPALIVE
           value: "25"
-        #- name: WG_DEFAULT_DNS
-        #  value: "192.168.1.1"
+        - name: WG_DEFAULT_DNS
+          value: "192.168.1.2"
         - name: WG_ALLOWED_IPS
           value: "192.168.1.0/24"
         - name: WG_MTU
